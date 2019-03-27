@@ -35,11 +35,13 @@ $ npm install
 $ npm run serve
 ```
 
-You can build the project for production use using this command:
+You can also build the project for production use using this command:
 
 ```shell
 $ npm run build
 ```
+
+> Remember, the user account you use to login must be a member of a group that has access to the `Moqui Workflow REST API` artifact group.
 
 ## Configuration
 
@@ -72,4 +74,4 @@ This project was build with :heart: by the good fellas at [Netvariant](https://w
 
 [![license](http://img.shields.io/badge/license-CC0%201.0%20Universal-blue.svg)](https://github.com/Netvariant/moqui-workflow/blob/master/LICENSE.md)
  
-This project is licensed under the CC0 License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the CC0 License, see the [LICENSE.md](LICENSE.md) file for details.
