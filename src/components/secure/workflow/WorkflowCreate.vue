@@ -34,7 +34,7 @@
                         </b-form-group>
                         <b-form-group class="col-md-6">
                           <label>Status Flow</label>
-                          <status-flow-lookup title="Status Flow" @select-record="selectStatusFlowRecord"/>
+                          <status-flow-lookup title="Status Flow" :statusTypeId="statusTypeId" @select-record="selectStatusFlowRecord"/>
                         </b-form-group>
                       </b-form-row>
                       <b-form-row>
@@ -128,6 +128,16 @@ export default {
       reminderLimit: 0,
       description: '',
       disabled: false
+    }
+  },
+  computed: {
+    statusTypeId () {
+      for (let i = 0; i < this.workflowTypes.length; i++) {
+        if (this.workflowTypes[i].typeId === this.workflowTypeId) {
+          return this.workflowTypes[i].statusTypeId
+        }
+      }
+      return null
     }
   },
   methods: {

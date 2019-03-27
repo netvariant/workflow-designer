@@ -58,11 +58,6 @@ export default {
       default: null
     }
   },
-  data: function () {
-    return {
-      statusTypeId: 'TransferStatus'
-    }
-  },
   methods: {
     selectRow (record, index) {
       this.$emit('select-row', record, index)

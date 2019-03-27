@@ -1,18 +1,19 @@
 <template>
   <div>
     <status-flow-modal
-      :id="id"
-      :title="title"
-      :defaultStatusFlowTableFilter="defaultStatusFlowTableFilter"
-      @select-row="selectRow"/>
+            :id="id"
+            :title="title"
+            :defaultStatusFlowTableFilter="defaultStatusFlowTableFilter"
+            :statusTypeId="statusTypeId"
+            @select-row="selectRow"/>
 
     <vue-simple-suggest ref="autoComplete"
-      :list="autoCompleteProvider"
-      value-attribute="statusFlowId"
-      display-attribute="description"
-      :destyled=true
-      :styles="autoCompleteStyles"
-      @select="selectSuggestion">
+                        :list="autoCompleteProvider"
+                        value-attribute="statusFlowId"
+                        display-attribute="description"
+                        :destyled=true
+                        :styles="autoCompleteStyles"
+                        @select="selectSuggestion">
       <b-input-group>
         <b-form-input type="text" v-model="mutableDescription"/>
         <b-button slot="append" :disabled="!mutableStatusFlowId" @click="clear">
@@ -60,6 +61,10 @@ export default {
     defaultStatusFlowTableFilter: {
       type: String,
       default: null
+    },
+    statusTypeId: {
+      type: String,
+      default: null
     }
   },
   data: function () {
@@ -85,7 +90,7 @@ export default {
         pageSize: 10,
         orderByField: 'description',
         filter: query,
-        statusTypeId: 'TransferStatus'
+        statusTypeId: this.statusTypeId
       }).then(function (response) {
         return response.data || []
       })
@@ -94,6 +99,7 @@ export default {
       this.mutableStatusFlowId = ''
       this.mutableDescription = ''
       this.$refs.autoComplete.clearSuggestions()
+      this.$emit('select-record', {})
     },
     selectRow (record, index) {
       this.mutableStatusFlowId = record.statusFlowId
@@ -115,6 +121,11 @@ export default {
     },
     description: function (val) {
       this.mutableDescription = val
+    },
+    statusTypeId: function (newVal, oldVal) {
+      if (oldVal) {
+        this.clear()
+      }
     }
   }
 }

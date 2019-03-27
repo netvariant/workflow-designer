@@ -2,18 +2,17 @@ import StatusFlowService from '@/services/StatusFlowService'
 
 let StatusFlowTableMixin = {
   props: {
-    defaultStatusTypeId: {
+    defaultStatusFlowTableFilter: {
       type: String,
       default: null
     },
-    defaultStatusFlowTableFilter: {
+    statusTypeId: {
       type: String,
       default: null
     }
   },
   data: function () {
     return {
-      statusTypeId: this.defaultStatusTypeId,
       statusFlowTableFilter: this.defaultStatusFlowTableFilter,
       statusFlowTableBusy: false,
       statusFlowTableTotalRows: 0,
@@ -48,6 +47,11 @@ let StatusFlowTableMixin = {
     },
     refreshStatusFlowTable () {
       this.$refs.statusFlowTable.refresh()
+    }
+  },
+  watch: {
+    statusTypeId: function (val) {
+      this.refreshStatusFlowTable()
     }
   }
 }
