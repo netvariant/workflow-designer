@@ -23,7 +23,7 @@ You will be carrying out these steps to install the workflow designer.
 Clone the workflow designer repository using this command:
 
 ```shell
-$ git clone https://github.com/Netvariant/moqui-workflow.git
+$ git clone https://github.com/Netvariant/workflow-designer.git
 ```
 
 ### Install dependencies & run workflow designer
@@ -45,8 +45,8 @@ $ npm run build
 
 ## Configuration
 
-The workflow designer communicates with your Moqui instance using REST APIs. 
-The base API URL path is configured in the `.env` file. 
+The workflow designer communicates with your Moqui instance using REST APIs.
+The base API URL path is configured in the `.env` file.
 All API requests are pass though a proxy to reach the Moqui instance, this is configured in the `vue.config.js` file.
 
 ```javascript
@@ -73,5 +73,5 @@ This project was build with :heart: by the good fellas at [Netvariant](https://w
 ## License
 
 [![license](http://img.shields.io/badge/license-CC0%201.0%20Universal-blue.svg)](https://github.com/Netvariant/moqui-workflow/blob/master/LICENSE.md)
- 
+
 This project is licensed under the CC0 License, see the [LICENSE.md](LICENSE.md) file for details.
