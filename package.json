@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
-    "@vue/cli-plugin-e2e-nightwatch": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-plugin-unit-jest": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
